@@ -1,6 +1,6 @@
 {
   "name": "react-flip-ticker",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "scripts": {
     "start": "concurrently \"npm run rollup\" \"npm run storybook\" -n \"R,S\" -c \"blue,yellow\" --k",
