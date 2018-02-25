@@ -8,6 +8,7 @@ Example:
 
 ```js
 import React, { Component } from "react";
+import Ticker from "react-native-ticker"
 
 function getRandom(min, max) {
   min = Math.ceil(min);
