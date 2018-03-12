@@ -26,31 +26,36 @@ const pieceStyle = {
   zIndex: "10",
 };
 
-class Tick extends Component {
-  render() {
-    const { value, height, range, className } = this.props;
-    const index = range.indexOf(value);
+const Tick = props => {
+  const { value, height, range, className, currentClassName, hiddenClassName } = props;
+  const index = range.indexOf(value);
 
-    return (
-      <span className={className} style={tickStyle}>
-        <span className={className} style={hiddenPieceStyle}>
-          {value}
-        </span>
-        <span style={{...rotatorStyle, transform: `translateY(${height * index * -1}px)` }}>
-          {range.map((v, i) => {
-            return (
-              <span className={className} style={{ ...pieceStyle, top: i * height }}>
-                {v}
-              </span>
-            );
-          })}
-        </span>
+  return (
+    <span className={className} style={tickStyle}>
+      <span
+        className={className}
+        style={hiddenPieceStyle}
+      >
+        {value}
       </span>
-    );
-  }
+      <span style={{...rotatorStyle, transform: `translateY(${height * index * -1}px)`}} >
+        {range.map((v, i) => {
+          return (
+            <span
+              key={v + i}
+              className={[className, v === value ? currentClassName : hiddenClassName].join(' ')}
+              style={{ ...pieceStyle, top: i * height }}
+            >
+              {v}
+            </span>
+          );
+        })}
+      </span>
+    </span>
+  );
 }
 
-const quickMeasure = (className, value) => {
+const measureHeight = (className, value) => {
   const d = document.createElement("span");
   d.textContent = value;
   d.className = className;
@@ -64,28 +69,36 @@ const quickMeasure = (className, value) => {
 };
 
 class Ticker extends Component {
-  componentWillMount() {
-    this.setState({
-      height: quickMeasure(this.props.textClassName, "0"),
-    });
+  state = {
+    height: measureHeight(this.props.textClassName, "0")
   }
+
   render() {
+    const { children, text, textClassName, currentClassName, hiddenClassName } = this.props;
+    const { height } = this.state;
+
     return (
       <Fragment>
-        {(this.props.children || this.props.text).split("").map((v, i) => {
+        {(children || text).split("").map((v, i) => {
           if (isNaN(parseFloat(v, 10)))
             return (
-              <span key={i} className={this.props.textClassName} style={tickStyle}>
+              <span
+                key={i}
+                className={textClassName}
+                style={tickStyle}
+              >
                 {v}
               </span>
             );
           return (
             <Tick
               range={numberRange}
-              className={this.props.textClassName}
+              className={textClassName}
+              currentClassName={currentClassName}
+              hiddenClassName={hiddenClassName}
               key={i}
               value={v}
-              height={this.state.height}
+              height={height}
             />
           );
         })}
@@ -97,6 +110,13 @@ class Ticker extends Component {
 Ticker.propTypes = {
   children: PropTypes.string,
   text: PropTypes.string,
+  currentClassName: PropTypes.string,
+  hiddenClassName: PropTypes.string,
 };
+
+Ticker.defaultProps = {
+  currentClassName: 'currentTicker',
+  hiddenClassName: 'hiddenTicker',
+}
 
 export default Ticker;
