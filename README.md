@@ -7,7 +7,7 @@ We now also support any character and not just numbers
 
 Number ticker for React Web.
 
-![](./TickerTicker.gif)
+![](./webflipper.gif)
 
 Supply some `text` as `children`, and a `textClassName`, then start ticking values!
 

@@ -27,15 +27,15 @@ const App = () => {
 
   return (
     <div
-    // style={{
-    //   padding: "24px",
-    //   border: `1px solid #E5E8E8`,
-    //   borderRadius: "8px",
-    //   width: "300px",
-    //   alignItems: "center",
-    //   justifyContent: "center",
-    //   display: "flex",
-    // }}
+      style={{
+        padding: "24px",
+        border: `1px solid #E5E8E8`,
+        borderRadius: "8px",
+        width: "300px",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+      }}
     >
       <Ticker textClassName="text">
         <Tick rotateItems={currencies}>{state.currency}</Tick>
