@@ -1,6 +1,6 @@
 {
   "name": "react-flip-ticker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "author": "Jason Brown",
   "main": "dist/index.js",
