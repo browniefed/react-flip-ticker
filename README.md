@@ -9,6 +9,8 @@ npm install react-flip-ticker
 import { Ticker } from "react-flip-ticker";
 ```
 
+[Live Demo on Code Sandbox](https://codesandbox.io/s/react-flip-ticker-6yzv2)
+
 # Migrating to v1
 
 We no longer support `text` as a prop, just put the `text` you wish as your children.
