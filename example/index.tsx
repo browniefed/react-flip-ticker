@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import Ticker, { Tick } from "../.";
+import { Ticker, Tick } from "../.";
 
 function getRandom(min, max) {
   min = Math.ceil(min);

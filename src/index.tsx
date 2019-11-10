@@ -127,7 +127,7 @@ interface Props {
   duration?: string;
 }
 
-const Ticker: React.FC<Props> = ({
+export const Ticker: React.FC<Props> = ({
   children,
   textClassName,
   currentClassName = "currentTicker",
@@ -190,5 +190,3 @@ const Ticker: React.FC<Props> = ({
     </Fragment>
   );
 };
-
-export default Ticker;

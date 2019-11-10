@@ -1,5 +1,14 @@
 # React Flip Ticker
 
+```
+yarn add react-flip-ticker
+npm install react-flip-ticker
+```
+
+```js
+import { Ticker } from "react-flip-ticker";
+```
+
 # Migrating to v1
 
 We no longer support `text` as a prop, just put the `text` you wish as your children.
@@ -9,7 +18,7 @@ Number ticker for React Web.
 
 ![](./webflipper.gif)
 
-Supply some `text` as `children`, and a `textClassName`, then start ticking values!
+Supply some value as `children`, and a `textClassName`, then start ticking values!
 
 ```js
 <Ticker textClassName="text">{value}</Ticker>
@@ -20,7 +29,7 @@ Basic Demo
 ```tsx
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import Ticker from "react-flip-ticker";
+import { Ticker } from "react-flip-ticker";
 
 function getRandom(min, max) {
   min = Math.ceil(min);
@@ -54,7 +63,7 @@ Advanced Demo
 ```tsx
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-import Ticker, { Tick } from "react-flip-ticker";
+import { Ticker, Tick } from "react-flip-ticker";
 
 function getRandom(min, max) {
   min = Math.ceil(min);
